@@ -23,7 +23,7 @@ from homeassistant.components.media_player import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import config_validation as cv, entity_platform
-from homeassistant.helpers.entity import DeviceInfo
+from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .const import ATTR_PIN_INDEX, DOMAIN, SERVICE_INVOKE_PIN
@@ -126,9 +126,9 @@ class OpenhomeDevice(MediaPlayerEntity):
             identifiers={
                 (DOMAIN, self._device.uuid()),
             },
-            manufacturer=self._device.device.manufacturer,
-            model=self._device.device.model_name,
-            name=self._device.device.friendly_name,
+            manufacturer=self._device.manufacturer(),
+            model=self._device.model_name(),
+            name=self._device.friendly_name(),
         )
 
     @property

@@ -13,7 +13,17 @@ from homeassistant.helpers.event import async_call_later, async_track_point_in_t
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 import homeassistant.util.dt as dt_util
 
-from .const import CONF_CALC_METHOD, CONF_LAT_ADJ_METHOD, CONF_MIDNIGHT_MODE, CONF_SCHOOL, DEFAULT_CALC_METHOD, DEFAULT_LAT_ADJ_METHOD, DEFAULT_MIDNIGHT_MODE, DEFAULT_SCHOOL, DOMAIN
+from .const import (
+    CONF_CALC_METHOD,
+    CONF_LAT_ADJ_METHOD,
+    CONF_MIDNIGHT_MODE,
+    CONF_SCHOOL,
+    DEFAULT_CALC_METHOD,
+    DEFAULT_LAT_ADJ_METHOD,
+    DEFAULT_MIDNIGHT_MODE,
+    DEFAULT_SCHOOL,
+    DOMAIN,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -40,7 +50,9 @@ class IslamicPrayerDataUpdateCoordinator(DataUpdateCoordinator[dict[str, datetim
     @property
     def lat_adj_method(self) -> str:
         """Return the latitude adjustment method."""
-        return self.config_entry.options.get(CONF_LAT_ADJ_METHOD, DEFAULT_LAT_ADJ_METHOD)
+        return self.config_entry.options.get(
+            CONF_LAT_ADJ_METHOD, DEFAULT_LAT_ADJ_METHOD
+        ).replace("_", " ")
 
     @property
     def midnight_mode(self) -> str:
