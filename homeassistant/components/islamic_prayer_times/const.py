@@ -26,8 +26,8 @@ CALC_METHODS: list[str] = [
 DEFAULT_CALC_METHOD: Final = "isna"
 
 CONF_LAT_ADJ_METHOD: Final = "latitude_adjustment_method"
-LAT_ADJ_METHODS: list[str] = ["middle of the night", "one seventh", "angle based"]
-DEFAULT_LAT_ADJ_METHOD: Final = "middle of the night"
+LAT_ADJ_METHODS: list[str] = ["middle_of_the_night", "one_seventh", "angle_based"]
+DEFAULT_LAT_ADJ_METHOD: Final = "middle_of_the_night"
 
 CONF_MIDNIGHT_MODE: Final = "midnight_mode"
 MIDNIGHT_MODES: list[str] = ["standard", "jafari"]
